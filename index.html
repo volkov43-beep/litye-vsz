@@ -270,6 +270,13 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
   .comparison-table tbody th{font-size:15px;line-height:1.5}
 }
 @media(max-width:560px){.sub{font-size:var(--text-main)}}
+
+/* UX audit, stage 3: last process card and native file chooser. */
+@media(width > 960px){.technology-section .process-steps>.process-step:nth-child(10):last-child{grid-column:2}}
+.form input[type="file"]{padding:8px}
+.form input[type="file"]::file-selector-button{min-height:44px;margin-right:12px;padding:8px 12px;border:1px solid var(--field-border);border-radius:6px;background:var(--light);color:var(--ink);font:inherit;cursor:pointer}
+.form input[type="file"]::file-selector-button:hover{background:#FBEFEC;border-color:var(--red-d);color:var(--red-d)}
+.form input[type="file"]:focus-visible::file-selector-button{border-color:var(--red-d)}
 </style></head><body>
 
 <header><div class="wrap hd">
