@@ -263,6 +263,74 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
 @media(width < 920px){.table-hint{display:block}}
 @media(min-width:961px) and (max-width:1040px){.kchar .klab{font-size:20px}}
 @media(max-width:560px){.tile.kchar{column-gap:10px;padding-left:16px;padding-right:16px}.kchar .klab{font-size:20px}.kchar .kval{font-size:calc(18px + 1pt)}.production-flow li{grid-template-columns:44px minmax(0,1fr);column-gap:16px;padding:20px}.production-number{font-size:34px}}
+
+/* Comparison UX: native disclosure, reserved arrow gutters, connected conclusion. */
+.comparison-reading-hint{margin:0 0 16px;color:var(--muted);font-size:var(--text-caption);line-height:1.6}
+.comparison-list{border:1px solid var(--line);border-radius:10px 10px 0 0;background:#fff;overflow:hidden}
+.comparison-group{padding:0;border:0}
+.comparison-group+.comparison-group{border-top:1px solid var(--line)}
+.comparison-summary{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:16px;padding:16px 20px;min-height:80px;list-style:none;cursor:pointer;background:var(--light)}
+.comparison-summary::-webkit-details-marker{display:none}
+.comparison-summary::marker{content:""}
+.comparison-summary:hover{background:#FBEFEC}
+.comparison-summary:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
+.comparison-summary .comparison-heading{margin:0;min-width:0;font-size:21px;line-height:1.35}
+.comparison-name{min-width:0;overflow-wrap:break-word}
+.comparison-toggle{width:44px;height:44px;position:relative;color:var(--red)}
+.comparison-toggle::before,.comparison-toggle::after{content:"";position:absolute;background:currentColor;border-radius:1px}
+.comparison-toggle::before{width:18px;height:2px;left:13px;top:21px}
+.comparison-toggle::after{width:2px;height:18px;left:21px;top:13px}
+.comparison-group[open]>.comparison-summary .comparison-toggle::after{display:none}
+.comparison-body{padding:16px;background:#fff}
+.comparison-section .table-scroll{border:1px solid var(--line);border-radius:8px;isolation:isolate}
+.comparison-section .comparison-table{min-width:920px}
+.comparison-section .comparison-table th,.comparison-section .comparison-table td{padding:16px;line-height:1.6}
+.comparison-section .comparison-table thead th{vertical-align:middle;line-height:1.45}
+.comparison-section .comparison-table thead th:first-child{width:20%}
+.comparison-section .comparison-table thead th:nth-child(2){width:24%}
+.comparison-section .comparison-table thead th:nth-child(3){width:26%}
+.comparison-section .comparison-table thead th:last-child{width:30%;background:#E2EFE5;color:#285F3A}
+.comparison-section .comparison-table tr>:nth-child(2),.comparison-section .comparison-table tr>:nth-child(3){border-right:28px solid #fff}
+.comparison-section .comparison-table tbody td{position:relative}
+.comparison-section .comparison-table tbody td:last-child{background:#EDF6EF;color:#2B4032}
+.comparison-arrow{position:absolute;right:-23px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#858D87;pointer-events:none}
+.comparison-arrow svg{display:block}
+.comparison-advantage{display:grid;grid-template-columns:18px minmax(0,1fr);align-items:start;gap:8px}
+.comparison-check{display:block;margin-top:3px;color:#2C7346}
+.comparison-conclusion{margin-top:0;padding:24px 24px 28px;border:1px solid var(--line);border-top:0;border-radius:0 0 10px 10px;background:#fff}
+.comparison-conclusion-title{font-size:26px;line-height:1.3;margin-bottom:22px}
+.comparison-conclusion-title.section-heading::before{margin-bottom:18px}
+.comparison-formula{display:grid;grid-template-columns:minmax(min-content,1.4fr) 24px minmax(0,1fr) 24px minmax(0,1fr);align-items:stretch;gap:10px;margin-bottom:24px}
+.comparison-formula-piece{display:flex;align-items:center;justify-content:center;min-height:82px;padding:16px 14px;border:1px solid var(--line);border-radius:8px;background:var(--light);text-align:center;font-size:18px;line-height:1.4;font-weight:700}
+.comparison-formula-piece.result{background:#EDF6EF;border-color:#BFD7C6;color:#285F3A}
+.comparison-formula-op{align-self:center;justify-self:center;font-size:28px;line-height:1;color:var(--red)}
+.comparison-benefits-label{margin-bottom:16px;color:var(--muted);font-size:var(--text-caption);font-weight:700}
+.comparison-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 28px;list-style:none;margin:0;padding:0}
+.comparison-benefits li{display:grid;grid-template-columns:22px minmax(0,1fr);align-items:start;gap:10px;min-width:0;font-size:var(--text-main);line-height:1.5}
+.comparison-benefit-tick{display:flex;align-items:center;justify-content:center;width:22px;height:22px;margin-top:1px;color:#2C7346}
+.comparison-bottom-line{margin-top:26px;color:var(--red-d);font-size:21px;line-height:1.45;font-weight:700;max-width:1000px}
+@media(max-width:1040px){.comparison-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:960px){.comparison-summary .comparison-heading{font-size:20px}.comparison-formula-piece{font-size:16px}}
+@media(max-width:700px){
+  .comparison-summary{gap:8px;padding:14px 12px}
+  .comparison-summary .comparison-heading{gap:10px;font-size:18px}
+  .comparison-number{font-size:14px;padding:8px}
+  .comparison-body{padding:14px 0}
+  .comparison-body .table-hint{padding:0 12px}
+  .comparison-section .table-scroll{border-left:0;border-right:0;border-radius:0}
+  .comparison-section .comparison-table{--criterion-width:clamp(100px,32vw,132px);min-width:0;width:max(100%,min(920px,calc(300% - var(--criterion-width) - var(--criterion-width))))}
+  .comparison-section .comparison-table th,.comparison-section .comparison-table td{padding:14px 12px}
+  .comparison-section .comparison-table thead th:first-child{width:var(--criterion-width)}
+  .comparison-section .comparison-table thead th:not(:first-child){width:auto}
+  .comparison-section .comparison-table tr>:first-child{padding-left:10px;padding-right:10px}
+  .comparison-conclusion{padding:20px 16px 24px}
+  .comparison-conclusion-title{font-size:23px}
+  .comparison-formula{grid-template-columns:minmax(0,1fr);gap:6px}
+  .comparison-formula-piece{min-height:54px;font-size:17px;padding:12px}
+  .comparison-formula-op{font-size:24px}
+  .comparison-bottom-line{font-size:19px}
+}
+@media(max-width:560px){.comparison-benefits{grid-template-columns:minmax(0,1fr);gap:18px}}
 </style></head><body>
 
 <header><div class="wrap hd">
@@ -377,86 +445,109 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
   <h2 class="h2 section-heading" id="comparison-title">Сравнение технологий</h2>
   <p class="comparison-intro">Высокоточное литьё металлов (ВЛМ) — один из видов литья по выплавляемым моделям (ЛВМ). Ключевые технологические особенности — монолитная литейная форма и центробежная заливка.</p>
   <p class="sub">Сравним высокоточное литьё металлов с альтернативными технологиями по ключевым критериям, чтобы показать преимущество.</p>
+  <p class="comparison-reading-hint">Каждая строка читается горизонтально: ВЛМ → альтернативная технология → преимущество ВЛМ.</p>
   <div class="comparison-list">
-    <div class="comparison-group">
-      <h3 class="comparison-heading" id="comparison-1"><span class="comparison-number" aria-hidden="true">01</span>Традиционное литьё по выплавляемым моделям (ЛВМ)</h3>
+    <details class="comparison-group">
+      <summary class="comparison-summary"><h3 class="comparison-heading" id="comparison-1"><span class="comparison-number" aria-hidden="true">01</span><span class="comparison-name">Традиционное литьё по выплавляемым моделям (ЛВМ)</span></h3><span class="comparison-toggle" aria-hidden="true"></span></summary>
+      <div class="comparison-body">
       <p class="table-hint" id="comparison-hint-1">На узком экране таблицу можно прокрутить вправо →</p>
       <div class="table-scroll" tabindex="0" role="region" aria-labelledby="comparison-1" aria-describedby="comparison-hint-1">
         <table class="comparison-table">
           <thead><tr><th scope="col">Критерий</th><th scope="col">ВЛМ</th><th scope="col">Традиционное ЛВМ</th><th scope="col">Преимущество ВЛМ</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Форма</th><td>Монолитная: модельный блок заливается формомассой и прокаливается до керамики.</td><td>Керамическая оболочка, получаемая многократным обмакиванием модельного блока.</td><td>Прочность литейной формы.</td></tr>
-            <tr><th scope="row">Заливка</th><td>Центробежная: ускорение способствует заполнению формы и уплотнению металла.</td><td>Гравитационная заливка в керамическую оболочку.</td><td>Высокая скорость заливки.</td></tr>
-            <tr><th scope="row">Тонкостенность</th><td>От 0,5 мм — за счёт центробежной заливки и прочности формы.</td><td>Возможность заполнения тонких стенок зависит от условий заливки.</td><td>Получение стенок от 0,5 мм.</td></tr>
-            <tr><th scope="row">Дефекты</th><td>Высокое значение уплотнения уменьшает недоливы, неслитины и другие дефекты.</td><td>Требуется контроль недоливов, неслитин и других дефектов.</td><td>Значительное уменьшение количества дефектов.</td></tr>
+            <tr><th scope="row">Форма</th><td>Монолитная: модельный блок заливается формомассой и прокаливается до керамики.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Керамическая оболочка, получаемая многократным обмакиванием модельного блока.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Прочность литейной формы.</span></span></td></tr>
+            <tr><th scope="row">Заливка</th><td>Центробежная: ускорение способствует заполнению формы и уплотнению металла.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Гравитационная заливка в керамическую оболочку.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Высокая скорость заливки.</span></span></td></tr>
+            <tr><th scope="row">Тонкостенность</th><td>От 0,5 мм — за счёт центробежной заливки и прочности формы.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Возможность заполнения тонких стенок зависит от условий заливки.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Получение стенок от 0,5 мм.</span></span></td></tr>
+            <tr><th scope="row">Дефекты</th><td>Высокое значение уплотнения уменьшает недоливы, неслитины и другие дефекты.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Требуется контроль недоливов, неслитин и других дефектов.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Значительное уменьшение количества дефектов.</span></span></td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="comparison-group">
-      <h3 class="comparison-heading" id="comparison-2"><span class="comparison-number" aria-hidden="true">02</span>3D-печать металлом (SLS)</h3>
+      </div>
+    </details>
+    <details class="comparison-group">
+      <summary class="comparison-summary"><h3 class="comparison-heading" id="comparison-2"><span class="comparison-number" aria-hidden="true">02</span><span class="comparison-name">3D-печать металлом (SLS)</span></h3><span class="comparison-toggle" aria-hidden="true"></span></summary>
+      <div class="comparison-body">
       <p class="table-hint" id="comparison-hint-2">На узком экране таблицу можно прокрутить вправо →</p>
       <div class="table-scroll" tabindex="0" role="region" aria-labelledby="comparison-2" aria-describedby="comparison-hint-2">
         <table class="comparison-table">
           <thead><tr><th scope="col">Критерий</th><th scope="col">ВЛМ</th><th scope="col">3D-печать (SLS)</th><th scope="col">Преимущество ВЛМ</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Стоимость сырья</th><td>Металл шихты широко доступен в любом виде.</td><td>Металлопорошковая композиция дороже в 28–70 раз.</td><td>Значительная экономическая выгода в стоимости сырья.</td></tr>
-            <tr><th scope="row">Скорость в серии</th><td>Десятки деталей за прогон.</td><td>Одна деталь за прогон. Увеличение количества деталей внутри прогона прямо пропорционально уменьшает скорость печати.</td><td>Массовый выпуск, быстрая масштабируемость.</td></tr>
-            <tr><th scope="row">Отходы сырья</th><td>Практически нет — имеется возможность повторной переплавки металла.</td><td>Сырьё невозвратно полностью, около 10% порошка уходит в брак при спекании.</td><td>Возможность повторного использования сырья.</td></tr>
-            <tr><th scope="row">Диапазон сплавов</th><td>Практически любой сплав.</td><td>Узкий список порошков.</td><td>Широчайшая номенклатура сплавов.</td></tr>
+            <tr><th scope="row">Стоимость сырья</th><td>Металл шихты широко доступен в любом виде.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Металлопорошковая композиция дороже в 28–70 раз.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Значительная экономическая выгода в стоимости сырья.</span></span></td></tr>
+            <tr><th scope="row">Скорость в серии</th><td>Десятки деталей за прогон.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Одна деталь за прогон. Увеличение количества деталей внутри прогона прямо пропорционально уменьшает скорость печати.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Массовый выпуск, быстрая масштабируемость.</span></span></td></tr>
+            <tr><th scope="row">Отходы сырья</th><td>Практически нет — имеется возможность повторной переплавки металла.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Сырьё невозвратно полностью, около 10% порошка уходит в брак при спекании.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Возможность повторного использования сырья.</span></span></td></tr>
+            <tr><th scope="row">Диапазон сплавов</th><td>Практически любой сплав.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Узкий список порошков.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Широчайшая номенклатура сплавов.</span></span></td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="comparison-group">
-      <h3 class="comparison-heading" id="comparison-3"><span class="comparison-number" aria-hidden="true">03</span>MIM</h3>
+      </div>
+    </details>
+    <details class="comparison-group">
+      <summary class="comparison-summary"><h3 class="comparison-heading" id="comparison-3"><span class="comparison-number" aria-hidden="true">03</span><span class="comparison-name">MIM</span></h3><span class="comparison-toggle" aria-hidden="true"></span></summary>
+      <div class="comparison-body">
       <p class="table-hint" id="comparison-hint-3">На узком экране таблицу можно прокрутить вправо →</p>
       <div class="table-scroll" tabindex="0" role="region" aria-labelledby="comparison-3" aria-describedby="comparison-hint-3">
         <table class="comparison-table">
           <thead><tr><th scope="col">Критерий</th><th scope="col">ВЛМ</th><th scope="col">MIM</th><th scope="col">Преимущество ВЛМ</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Материалы</th><td>Используются сплавы в слитках и прутках.</td><td>Выбор ограничен доступными металлопорошковыми композициями.</td><td>Широчайшая номенклатура сплавов.</td></tr>
-            <tr><th scope="row">Освоение</th><td>Быстрая (до одного месяца) подготовка оснастки и модельного блока для конкретной отливки.</td><td>Сложное освоение производства под выбранную композицию и изделие.</td><td>Скорость подготовки производства.</td></tr>
-            <tr><th scope="row">Масштабируемость</th><td>Возможность быстрого увеличения объёма производства.</td><td>Увеличение объёма производства технически сложно.</td><td>Лёгкость увеличения объёма производства.</td></tr>
+            <tr><th scope="row">Материалы</th><td>Используются сплавы в слитках и прутках.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Выбор ограничен доступными металлопорошковыми композициями.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Широчайшая номенклатура сплавов.</span></span></td></tr>
+            <tr><th scope="row">Освоение</th><td>Быстрая (до одного месяца) подготовка оснастки и модельного блока для конкретной отливки.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Сложное освоение производства под выбранную композицию и изделие.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Скорость подготовки производства.</span></span></td></tr>
+            <tr><th scope="row">Масштабируемость</th><td>Возможность быстрого увеличения объёма производства.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Увеличение объёма производства технически сложно.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Лёгкость увеличения объёма производства.</span></span></td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="comparison-group">
-      <h3 class="comparison-heading" id="comparison-4"><span class="comparison-number" aria-hidden="true">04</span>Литьё под давлением</h3>
+      </div>
+    </details>
+    <details class="comparison-group">
+      <summary class="comparison-summary"><h3 class="comparison-heading" id="comparison-4"><span class="comparison-number" aria-hidden="true">04</span><span class="comparison-name">Литьё под давлением</span></h3><span class="comparison-toggle" aria-hidden="true"></span></summary>
+      <div class="comparison-body">
       <p class="table-hint" id="comparison-hint-4">На узком экране таблицу можно прокрутить вправо →</p>
       <div class="table-scroll" tabindex="0" role="region" aria-labelledby="comparison-4" aria-describedby="comparison-hint-4">
         <table class="comparison-table">
           <thead><tr><th scope="col">Критерий</th><th scope="col">ВЛМ</th><th scope="col">Литьё под давлением</th><th scope="col">Преимущество ВЛМ</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Оснастка и запуск</th><td>Быстрое (до одного месяца) подготовка оснастки для изготовления моделей и литейных форм.</td><td>Дорогостоящая форма и длительная подготовка производства.</td><td>Малая стоимость и короткие сроки подготовки производства.</td></tr>
-            <tr><th scope="row">Изменение детали</th><td>Возможна корректировка модели и оснастки.</td><td>Изменение деталей требует пересмотра оснастки и длительной подготовки производства.</td><td>Возможность быстрого изменения ТЗ и оперативное изменение выпускаемой продукции.</td></tr>
-            <tr><th scope="row">Размер серии</th><td>Гибкость при изготовлении опытных, небольших и крупных серий.</td><td>Невыгодно на малых и средних партиях.</td><td>Возможность дешевле выпускать мелкие и средние серии.</td></tr>
+            <tr><th scope="row">Оснастка и запуск</th><td>Быстрое (до одного месяца) подготовка оснастки для изготовления моделей и литейных форм.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Дорогостоящая форма и длительная подготовка производства.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Малая стоимость и короткие сроки подготовки производства.</span></span></td></tr>
+            <tr><th scope="row">Изменение детали</th><td>Возможна корректировка модели и оснастки.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Изменение деталей требует пересмотра оснастки и длительной подготовки производства.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Возможность быстрого изменения ТЗ и оперативное изменение выпускаемой продукции.</span></span></td></tr>
+            <tr><th scope="row">Размер серии</th><td>Гибкость при изготовлении опытных, небольших и крупных серий.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Невыгодно на малых и средних партиях.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Возможность дешевле выпускать мелкие и средние серии.</span></span></td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="comparison-group">
-      <h3 class="comparison-heading" id="comparison-5"><span class="comparison-number" aria-hidden="true">05</span>Механическая обработка</h3>
+      </div>
+    </details>
+    <details class="comparison-group">
+      <summary class="comparison-summary"><h3 class="comparison-heading" id="comparison-5"><span class="comparison-number" aria-hidden="true">05</span><span class="comparison-name">Механическая обработка</span></h3><span class="comparison-toggle" aria-hidden="true"></span></summary>
+      <div class="comparison-body">
       <p class="table-hint" id="comparison-hint-5">На узком экране таблицу можно прокрутить вправо →</p>
       <div class="table-scroll" tabindex="0" role="region" aria-labelledby="comparison-5" aria-describedby="comparison-hint-5">
         <table class="comparison-table">
           <thead><tr><th scope="col">Критерий</th><th scope="col">ВЛМ</th><th scope="col">Механическая обработка</th><th scope="col">Преимущество ВЛМ</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Геометрия</th><td>Получение сложной геометрии, тонких стенок и внутренних каналов в отливке за один цикл.</td><td>Сложная геометрическая форма ограничивает возможности механической обработки.</td><td>Получение сложной геометрии за один цикл в кратчайшие сроки.</td></tr>
-            <tr><th scope="row">Использование материала</th><td>Отливка близка к готовой детали — меньше материала снимается при обработке.</td><td>При механической обработке деталей сложной геометрической формы возможен высокий расход металла в отходы с низким коэффициентом использования материала (КИМ).</td><td>Гораздо более высокий коэффициент использования материала (КИМ).</td></tr>
-            <tr><th scope="row">Снижение брака</th><td>Уменьшение количества технологических процессов напрямую снижает количество брака.</td><td>Большое количество технологических процессов влияет на увеличение количества брака.</td><td>Сокращение числа технологических операций способствует снижению брака.</td></tr>
-            <tr><th scope="row">Последующая обработка</th><td>Минимальное количество этапов механической обработки ввиду высокой точности отливки.</td><td>Полное количество необходимых этапов механической обработки.</td><td>Значительное сокращение количества этапов механической обработки — уменьшение расхода человеко-часов, машинного времени и режущего инструмента.</td></tr>
+            <tr><th scope="row">Геометрия</th><td>Получение сложной геометрии, тонких стенок и внутренних каналов в отливке за один цикл.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Сложная геометрическая форма ограничивает возможности механической обработки.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Получение сложной геометрии за один цикл в кратчайшие сроки.</span></span></td></tr>
+            <tr><th scope="row">Использование материала</th><td>Отливка близка к готовой детали — меньше материала снимается при обработке.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>При механической обработке деталей сложной геометрической формы возможен высокий расход металла в отходы с низким коэффициентом использования материала (КИМ).<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Гораздо более высокий коэффициент использования материала (КИМ).</span></span></td></tr>
+            <tr><th scope="row">Снижение брака</th><td>Уменьшение количества технологических процессов напрямую снижает количество брака.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Большое количество технологических процессов влияет на увеличение количества брака.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Сокращение числа технологических операций способствует снижению брака.</span></span></td></tr>
+            <tr><th scope="row">Последующая обработка</th><td>Минимальное количество этапов механической обработки ввиду высокой точности отливки.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td>Полное количество необходимых этапов механической обработки.<span class="comparison-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5 5 5-5 5"/></svg></span></td><td><span class="comparison-advantage"><svg class="comparison-check" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 10 4 4 8-9"/></svg><span>Значительное сокращение количества этапов механической обработки — уменьшение расхода человеко-часов, машинного времени и режущего инструмента.</span></span></td></tr>
           </tbody>
         </table>
       </div>
-    </div>
+      </div>
+    </details>
   </div>
-  <div class="comparison-conclusion">
-    <h3 class="comparison-conclusion-title">Вывод</h3>
-    <div class="comparison-factors"><span>Труднообрабатываемые сплавы</span><b aria-hidden="true">+</b><span>Сложная геометрия</span></div>
-    <p>Высокоточное литьё металлов особенно интересно при изготовлении отливок сложной формы из труднообрабатываемых сплавов, когда важны гибкость производства, сроки подготовки и минимизация последующей механической обработки.</p>
-  </div>
+  <div class="comparison-conclusion" id="conclusion" aria-labelledby="conclusion-title">
+ <h3 class="comparison-conclusion-title section-heading" id="conclusion-title">Вывод: преимущества технологии ВЛМ</h3>
+ <div class="comparison-formula" aria-label="Труднообрабатываемые сплавы плюс сложная геометрия равно быстрый результат">
+ <div class="comparison-formula-piece">Труднообрабатываемые сплавы</div><div class="comparison-formula-op" aria-hidden="true">+</div><div class="comparison-formula-piece">Сложная геометрия</div><div class="comparison-formula-op" aria-hidden="true">=</div><div class="comparison-formula-piece result">Быстрый результат</div>
+ </div>
+ <p class="comparison-benefits-label">Преимущества</p>
+ <ul class="comparison-benefits"><li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Высокий КИМ</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Получение стенок от 0,5 мм</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Массовый выпуск, масштабируемость</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Широчайшая номенклатура сплавов</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Скорость подготовки производства</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Лёгкость увеличения объёма производства</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Малая стоимость и короткие сроки подготовки производства</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Возможность доработки ТЗ в процессе подготовки производства</span></li>
+<li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Сокращение числа технологических операций — уменьшение брака</span></li></ul>
+ <p class="comparison-bottom-line">Значительная экономическая выгода при производстве деталей сложной геометрической формы из сложных сплавов.</p>
+</div>
 </div></section>
 
 <section class="production-section"><div class="wrap">
