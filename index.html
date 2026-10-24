@@ -29,6 +29,7 @@ nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .speed b{font-size:26px}.speed span{font-size:14px;color:#ddd}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 section{padding:56px 0}
+.documents-section{padding-bottom:40px}
 section.alt{background:var(--light)}
 .h2{font-size:30px;line-height:var(--leading-heading);font-weight:800;margin-bottom:8px}
 .sub{color:var(--muted);font-size:var(--text-lead);margin-bottom:28px;max-width:820px}
@@ -174,7 +175,7 @@ ul.advf li b{color:var(--ink)}
 .phase-operation:last-child{border-bottom:0}
 .phase-operation dd{font-weight:700;white-space:nowrap}
 .operation-note{display:block;color:var(--muted);font-size:var(--text-caption);line-height:1.45;margin-top:4px}
-.cycle-total{font-size:28px;line-height:1.4;font-weight:800;color:var(--red);padding:22px 24px;background:#FBEFEC;border-left:4px solid var(--red);border-radius:6px;margin-top:24px}
+.cycle-total{font-size:28px;line-height:1.4;font-weight:800;color:var(--red);padding:22px 24px;background:#FBEFEC;border-left:4px solid var(--red);border-radius:6px;margin-top:12px}
 .cycle-total>span{font-size:var(--text-main);color:var(--red-d);display:inline-block;margin-right:12px}
 @media(prefers-reduced-motion:no-preference){.phase[open] .phase-operations{animation:phase-reveal .18s ease-out}}
 @keyframes phase-reveal{from{opacity:0}to{opacity:1}}
@@ -620,7 +621,7 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
         </dl>
       </details>
       </div>
-      <p class="cycle-total"><span>ИТОГО:</span> от 30 рабочих дней</p>
+      <p class="cycle-total"><span>ИТОГО:</span> от 30 рабочих дней опытная партия</p>
       <p class="cycle-note">Сроки указаны с условием оперативного решения технических вопросов и согласования совместных действий.</p>
     </div>
   </div>
@@ -674,7 +675,7 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
   <p class="process-note">Схемы показывают принцип процесса; геометрия детали и устройство оборудования изображены условно.</p>
 </div></section>
 
-<section><div class="wrap">
+<section class="documents-section"><div class="wrap">
   <div class="h2 section-heading">Система СТП-УК и документы</div>
   <ul class="check qc">
     <li>каждая партия — с именным технологическим паспортом отливки;</li>
@@ -684,10 +685,6 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
     <li>каждая партия сопровождается паспортом (сертификатом) качества;</li>
     <li>по запросу — протоколы химанализа, рентгенографии и дефектоскопии.</li>
   </ul>
-  <div class="cta-row">
-    <span class="cta-hint">Хотите увидеть, как выглядит наш паспорт?</span>
-    <button class="btn btn-line btn-sm">Запросить образец паспорта качества</button>
-  </div>
 </div></section>
 
 
