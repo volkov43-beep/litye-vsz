@@ -335,6 +335,27 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
   .comparison-bottom-line{font-size:19px}
 }
 @media(max-width:560px){.comparison-benefits{grid-template-columns:minmax(0,1fr);gap:18px}}
+
+/* Temporary metallurgist clarifications: remove after review. */
+.vsz-clarification-target{outline:2px solid #7d9fbf;outline-offset:3px;min-width:0;border-radius:4px}
+.form.vsz-clarification-target{border-radius:12px}
+.vsz-clarification-button{display:block;width:max-content;max-width:100%;min-height:44px;margin:8px 0 0;padding:8px 12px;border:1px solid #9db8d2;border-radius:6px;background:#edf5fc;color:#285574;font:700 14px/1.35 inherit;font-family:inherit;font-size:14px;font-weight:700;line-height:1.35;white-space:normal;text-align:center;cursor:pointer}
+.mc .vsz-clarification-button{margin-inline:auto}
+.vsz-clarification-mass .vsz-clarification-button{margin-inline-start:auto}
+.form .vsz-clarification-button{margin:0 0 14px}
+.vsz-clarification-button:hover,.vsz-clarification-close:hover{background:#deedf9;border-color:#688fae}
+.vsz-clarification-button:focus-visible,.vsz-clarification-close:focus-visible{outline:3px solid #1d79b8;outline-offset:3px}
+#vsz-clarification-dialog{position:fixed;inset:0;margin:auto;padding:0;width:560px;max-width:calc(100vw - 24px);max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow:auto;border:1px solid #9db8d2;border-radius:12px;background:#fff;color:var(--ink);box-shadow:0 20px 70px #10284045;text-align:left}
+#vsz-clarification-dialog:not([open]){display:none}
+#vsz-clarification-dialog::backdrop{background:rgba(15,35,55,.55)}
+.vsz-clarification-header{padding:20px 22px 16px;background:#edf5fc;border-bottom:1px solid #cbdceb}
+.vsz-clarification-kicker{font-size:13px;font-weight:700;color:#285574;margin-bottom:6px}
+#vsz-clarification-title{font-size:22px;line-height:1.3;letter-spacing:normal;margin:0;color:#285574}
+#vsz-clarification-text{padding:20px 22px;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+.vsz-clarification-footer{padding:12px 22px;border-top:1px solid #d8e4ef;display:flex;justify-content:flex-end}
+.vsz-clarification-close{min-height:44px;padding:8px 18px;border:1px solid #9db8d2;border-radius:6px;background:#edf5fc;color:#285574;font:inherit;font-weight:700;cursor:pointer}
+@media(max-width:560px){#vsz-clarification-title{font-size:19px}.vsz-clarification-header,#vsz-clarification-text,.vsz-clarification-footer{padding:14px 16px}}
+@media print{.vsz-clarification-button,#vsz-clarification-dialog{display:none!important}.vsz-clarification-target{outline:none!important}}
 </style></head><body>
 
 <header><div class="wrap hd">
@@ -396,7 +417,7 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
   <div class="h2 section-heading">Преимущества технологии высокоточного литья металлов</div>
   <div class="metrics">
     <div class="mc"><div class="mv">до 45 g</div><div class="ml">Центробежная сила</div><div class="ms">Высокий металлостатический напор расплава способствует равномерному заполнению и уплотнению металла по всему сечению отливки.</div></div>
-    <div class="mc"><div class="mv">1–1,5 секунды</div><div class="ml">Время заполнения формы расплавом</div><div class="ms">Позволяет работать со сплавами с узким окном эвтектики (температурным интервалом кристаллизации).</div></div>
+    <div class="mc"><div class="mv">1–1,5 секунды</div><div class="ml">Время заполнения формы расплавом</div><div class="ms vsz-clarification-target">Позволяет работать со сплавами с узким окном эвтектики (температурным интервалом кристаллизации).<button type="button" class="vsz-clarification-button" data-vsz-clarification="1" aria-haspopup="dialog" aria-controls="vsz-clarification-dialog" aria-label="Уточнение 1: Окно эвтектики">Уточнение 1</button></div></div>
     <div class="mc"><div class="mv">Вакуум</div><div class="ml">Защитная среда</div><div class="ms">и инертные газы — минимум окисления и шлаков</div></div>
   </div>
   <ul class="advf">
@@ -415,7 +436,7 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
     <div class="chars">
       <div>
         <div class="row"><b>Сплавы</b><span>литейные, температура плавления до 1800 °C</span></div>
-        <div class="row"><b>Масса отливки</b><span>до 1 кг истинных изделий для стали (до 3 кг — перспектива)</span></div>
+        <div class="row"><b>Масса отливки</b><span class="vsz-clarification-target vsz-clarification-mass">до 1 кг истинных изделий для стали (до 3 кг — перспектива)<button type="button" class="vsz-clarification-button" data-vsz-clarification="2" aria-haspopup="dialog" aria-controls="vsz-clarification-dialog" aria-label="Уточнение 2: Масса изделий без литниково-питающей системы">Уточнение 2</button></span></div>
         <div class="row"><b>Точность размеров</b><span>12–13 квалитет</span></div>
         <div class="row"><b>Толщина стенок</b><span>не менее 0,5 мм</span></div>
         <div class="row"><b>Шероховатость</b><span>не хуже Ra 3,2–2,5 мкм</span></div>
@@ -541,7 +562,7 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
  <div class="comparison-formula-piece">Труднообрабатываемые сплавы</div><div class="comparison-formula-op" aria-hidden="true">+</div><div class="comparison-formula-piece">Сложная геометрия</div><div class="comparison-formula-op" aria-hidden="true">=</div><div class="comparison-formula-piece result">Быстрый результат</div>
  </div>
  <p class="comparison-benefits-label">Преимущества</p>
- <ul class="comparison-benefits"><li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Высокий КИМ</span></li>
+ <ul class="comparison-benefits"><li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span class="vsz-clarification-target">Высокий КИМ<button type="button" class="vsz-clarification-button" data-vsz-clarification="3" aria-haspopup="dialog" aria-controls="vsz-clarification-dialog" aria-label="Уточнение 3: Что понимать под металлоёмкостью?">Уточнение 3</button></span></li>
 <li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Получение стенок от 0,5 мм</span></li>
 <li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Массовый выпуск, масштабируемость</span></li>
 <li><span class="comparison-benefit-tick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span><span>Широчайшая номенклатура сплавов</span></li>
@@ -699,7 +720,8 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
       <div class="h2 section-heading" style="color:#fff">Пришлите чертёж — оценим и рассчитаем</div>
       <p style="color:#e2e2e2;font-size:17px;max-width:440px">Отправьте чертёж или 3D-модель детали (или отливки). Оценим возможность изготовления, срок и стоимость.</p>
     </div>
-    <form class="form" onsubmit="return false">
+    <form class="form vsz-clarification-target" onsubmit="return false">
+      <button type="button" class="vsz-clarification-button" data-vsz-clarification="4" aria-haspopup="dialog" aria-controls="vsz-clarification-dialog" aria-label="Уточнение 4: Какие данные нужны для первичной проработки?">Уточнение 4</button>
       <label for="request-name">Имя</label>
       <input id="request-name">
       <label for="request-phone">Телефон</label>
@@ -783,6 +805,45 @@ html{scroll-padding-top:calc(var(--site-header-height,77px) + 12px)}
       if (top < edge) window.scrollBy(0, top - edge);
     });
   });
+})();
+</script>
+
+<!-- Temporary metallurgist clarification dialog -->
+<dialog id="vsz-clarification-dialog" aria-labelledby="vsz-clarification-title" aria-describedby="vsz-clarification-text">
+  <div class="vsz-clarification-header">
+    <p class="vsz-clarification-kicker" id="vsz-clarification-kicker">Уточнение металлургу</p>
+    <h2 id="vsz-clarification-title"></h2>
+  </div>
+  <p id="vsz-clarification-text"></p>
+  <div class="vsz-clarification-footer"><button type="button" class="vsz-clarification-close" autofocus>Закрыть</button></div>
+</dialog>
+<script>
+(() => {
+  const questions = [{"title":"Окно эвтектики","text":"Просим подтвердить техническую корректность формулировки «со сплавами с узким окном эвтектики (температурным интервалом кристаллизации)». Эта формулировка используется под показателем «1–1,5 секунды» и в описании центробежной заливки."},{"title":"Масса изделий без литниково-питающей системы","text":"Добавлено рабочее выражение «истинных изделий». Под ним понимается масса изделий без литниково-питающей системы. Просим подтвердить формулировку или предложить точный термин. Условие «для стали» сохранено; 3 кг указаны как перспектива. Формулировка применяется в характеристиках отливок и FAQ."},{"title":"Что понимать под металлоёмкостью?","text":"Просим уточнить, что понимается под металлоёмкостью в этом сравнении и корректно ли дополнять преимущество «Высокий КИМ» словами «низкая металлоёмкость». До уточнения сохранён текст «Высокий КИМ»."},{"title":"Какие данные нужны для первичной проработки?","text":"Просим согласовать поля формы и материалы, необходимые для первичной проработки: чертёж, 3D-модель, ТЗ и другие сведения. Нужно определить, какие данные и вложения обязательны. Пока сохранён существующий состав формы."}];
+  const dialog = document.getElementById('vsz-clarification-dialog');
+  const title = document.getElementById('vsz-clarification-title');
+  const body = document.getElementById('vsz-clarification-text');
+  const kicker = document.getElementById('vsz-clarification-kicker');
+  let opener = null;
+  document.querySelectorAll('[data-vsz-clarification]').forEach(button => {
+    button.addEventListener('click', () => {
+      const index = Number(button.dataset.vszClarification) - 1;
+      const question = questions[index];
+      if (!question || dialog.open) return;
+      opener = button;
+      title.textContent = question.title;
+      body.textContent = question.text;
+      kicker.textContent = 'Уточнение металлургу ' + (index + 1) + ' из ' + questions.length;
+      dialog.showModal();
+    });
+  });
+  dialog.querySelector('.vsz-clarification-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const r = dialog.getBoundingClientRect();
+    if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => { if (opener) opener.focus({preventScroll:true}); opener = null; });
 })();
 </script>
 </body></html>
